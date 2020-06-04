@@ -1,0 +1,14 @@
+class Solution {
+public:
+    void deleteNode(ListNode* node) {
+        while (node->next != nullptr)
+        {
+            node->val = node->next->val;
+            
+            if (node->next->next == nullptr)
+                node->next = nullptr;
+            else
+                node = node->next; 
+        }      
+    }
+};

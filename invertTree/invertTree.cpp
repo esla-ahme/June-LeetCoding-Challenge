@@ -1,7 +1,15 @@
 class Solution {
 public:
-    void deleteNode(ListNode* node) {
-        node->val = node->next->val;
-        node->next = node->next->next;    
+    TreeNode* invertTree(TreeNode* root) {
+        if (root==nullptr) return root;
+        else
+        {
+            TreeNode *temp = root->left;
+            root->left = root->right;
+            root->right = temp;
+            invertTree(root->left);
+            invertTree(root->right);
+        }
+        return root;
     }
 };

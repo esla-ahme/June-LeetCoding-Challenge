@@ -11,7 +11,6 @@ public:
         v[0] = w[0];
         for (int i = 1 ; i < w.size() ; i++)
             v[i] = v[i-1] + w[i];
-        
     }
     
     /*
@@ -22,13 +21,6 @@ public:
     */
     
     int pickIndex() {
-        // get ranom number in range of the psum array
-        int rNum = rand()%v.back();
-        // get iterator points to the location of the picked number
-        //upper_bound function handle this mapping
-        auto it = upper_bound(v.begin(),v.end(),rNum);
-        // get the index of the picked number 
-        int index = it - v.begin();
-        return index;
+        return upper_bound(v.begin(),v.end(),rand()%v.back()) - v.begin();
     }
 };
